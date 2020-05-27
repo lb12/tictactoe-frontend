@@ -5,7 +5,10 @@ const GameContext = React.createContext({
     board: ["", "", "", "", "", "", "", "", ""],
     isPlayerX: true,
     gameStatus: "", // victory, loss, draw, game in progress
-    isNextX: true
+    updateBoard: squareId => {},
+    updateNextTurnValue: () => {},
+    updateGameStatus: gameStatus => {},
+    isPlayerTurn: () => {}
 });
 
 export default GameContext;

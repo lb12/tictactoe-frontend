@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GameContext from '../../contexts/gameContext';
 import PlayerSideSelector from '../PlayerSideSelector';
+import Board from '../Board';
 
 const Gameroom = props => {
     const createNewBoard = () => ["", "", "", "", "", "", "", "", ""];
@@ -11,13 +12,18 @@ const Gameroom = props => {
     const [isXTurn, setIsXTurn] = useState(true);
 
 
-    const gameContext = {
-        board,
-        isPlayerX,
-        isXTurn,
-        gameStatus
-    };
+    // 
+    const changeBoard = squareId => {
+        const newBoard = [...board];
+        newBoard[squareId] = getTurnValue();
+        setBoard(newBoard);
+    }
+ 
+    const changeTurn = () => {
+        setIsXTurn(!isXTurn);
+    }
 
+    const isPlayerTurn = () => ((isPlayerX && isXTurn) || (!isPlayerX && !isXTurn));
 
     // Handlers or evt methods
     const changeIsPlayerSide = value => setIsPlayerX(value);
@@ -25,7 +31,17 @@ const Gameroom = props => {
 
     // Utils
     const getPlayerSideValue = () => isPlayerX ? 'X' : 'O';
+    const getTurnValue = () => isXTurn ? 'X' : 'O';
     
+
+    const gameContext = {
+        board,
+        isPlayerX,
+        gameStatus,
+        isPlayerTurn,
+        updateBoard: changeBoard,
+        updateNextTurnValue: changeTurn
+    };
 
     return (        
         <GameContext.Provider value={gameContext}>
@@ -46,8 +62,10 @@ const Gameroom = props => {
                     gameStatus !== 'GAME_NOT_STARTED'
                     &&
                     <div>
-                        <span>Juegas con {getPlayerSideValue()}</span>
-                        <p>tablero de juego</p>
+                        <p>Juegas con {getPlayerSideValue()}</p>
+                        <p>ESTADO DE LA PARTIDA: </p>
+                        <p>TURNO DE : {getTurnValue()}</p>
+                        <Board />
                     </div>
                 }
             </div>
