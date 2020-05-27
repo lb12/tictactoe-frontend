@@ -10,16 +10,17 @@ import NotFoundPage from '../NotFoundPage';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
+
   return (
     <div>
       <ErrorBoundary>
-        <Router>
-          <Switch>
-            <Route path="/game" component={Gameroom} />
-            <Route exact path="/" component={Home} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Router>
+          <Router>
+            <Switch>
+              <Route path="/game" component={Gameroom} />
+              <Route exact path="/" component={Home} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Router>
       </ErrorBoundary>
     </div>
   );
