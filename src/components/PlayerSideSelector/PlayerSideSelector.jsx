@@ -1,5 +1,7 @@
 import React from 'react'; 
 
+import './PlayerSideSelector.css';
+
 const PlayerSideSelector = props => {
     
     const onPlayerSideChange = evt => {
@@ -10,9 +12,9 @@ const PlayerSideSelector = props => {
     }
     
     return(
-        <div>
+        <div className="player-side-container">
             <p>Elige con qué quieres jugar</p>
-            <div>
+            <div className="player-side-selector">
                 <div>
                     <input type="radio" name="playerSide" id="X" value="X" onChange={onPlayerSideChange} />
                     <label htmlFor="X">Jugar con X</label>

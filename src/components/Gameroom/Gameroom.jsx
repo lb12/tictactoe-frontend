@@ -3,6 +3,7 @@ import PlayerSideSelector from '../PlayerSideSelector';
 import Board from '../Board';
 import { getPlay } from '../../services/api';
 import { gameStatusCode } from '../../utils/dictionary';
+import './Gameroom.css';
 
 export default class Gameroom extends React.Component {
 
@@ -89,20 +90,18 @@ export default class Gameroom extends React.Component {
         const { board, isPlayerX, gameStatus, isXTurn } = this.state;
 
         return (
-            <div>
+            <div className="gameroom-container">
 
-                <h1>Game room component</h1>
+                <h1>Sala de juego</h1>
 
-                <div>
+                <div className="gamezone-container">
                     {
                         gameStatus === gameStatusCode.GAME_NOT_STARTED
                         &&
-                        <React.Fragment>
+                        <div className="player-form-container">
                             <PlayerSideSelector setPlayerSide={this.changeIsPlayerSide} />
-                            <div>
-                                <button onClick={this.startGameStatus}>JUGAR</button>
-                            </div>
-                        </React.Fragment>
+                            <button className="play-game-btn" onClick={this.startGameStatus}>JUGAR</button>
+                        </div>
                     }
                     {
                         gameStatus !== gameStatusCode.GAME_NOT_STARTED

@@ -1,0 +1,49 @@
+.home-wrapper {
+    height: 80vh;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div.promo-phrases-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+p.promo-phrase {
+    font-size: 1.5rem;
+}
+
+p.phrase-2 {
+    text-align: center;
+}
+
+p.phrase-3 {
+    text-align: right;
+}
+
+.home-play-button {
+    align-self: center;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: .3rem;
+    background-color: #5c95ff;
+}
+
+.home-play-button span {
+    color: white;
+    font-weight: bold;
+}
+
+.home-play-button:hover {
+    background-color: #0A60FF;
+}
+
+@media(min-width: 768px) {
+    .home-wrapper {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+}

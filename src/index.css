@@ -1,1 +1,14 @@
+:root {
+    --dark: #343a40;
+    --yellow: #fcfc62;
+}
 
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

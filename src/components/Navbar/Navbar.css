@@ -1,0 +1,21 @@
+.navbar {
+    height: 10vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+}
+
+.navbar-brand-name {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-brand-name h1 {
+    color: var(--yellow);
+}
+
+.navbar-brand-name h1:hover {
+    color: white;
+}

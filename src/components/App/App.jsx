@@ -1,5 +1,6 @@
 // React imports
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Own imports
 import './App.css';
@@ -7,22 +8,27 @@ import Home from '../Home';
 import Gameroom from '../Gameroom';
 import ErrorBoundary from '../ErrorBoundary';
 import NotFoundPage from '../NotFoundPage';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const App = () => {
 
   return (
-    <div>
+    <React.Fragment>
       <ErrorBoundary>
           <Router>
-            <Switch>
-              <Route path="/game" component={Gameroom} />
-              <Route exact path="/" component={Home} />
-              <Route component={NotFoundPage} />
-            </Switch>
+            <Navbar />
+            <main>
+              <Switch>
+                <Route path="/game" component={Gameroom} />
+                <Route exact path="/" component={Home} />
+                <Route component={NotFoundPage} />
+              </Switch>
+            </main>
+            <Footer />
           </Router>
       </ErrorBoundary>
-    </div>
+    </React.Fragment>
   );
 }
 
