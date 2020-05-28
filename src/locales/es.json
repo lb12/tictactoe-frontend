@@ -11,6 +11,9 @@
     "PLAY_TO": "Juega al",
     "PROMO_PHRASE_1": "Gana con una fila...",
     "PROMO_PHRASE_2": "...gana con una columna",
-    "PROMO_PHRASE_3": "o con una diagonal..."
+    "PROMO_PHRASE_3": "o con una diagonal...",
+    "DRAW": "Empate",
+    "X WINNER": "Gana X",
+    "O WINNER": "Gana O"
   }
 }

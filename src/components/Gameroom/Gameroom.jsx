@@ -91,7 +91,7 @@ class Gameroom extends React.Component {
                             &&
                             <div className="player-form-container">
                                 <PlayerSideSelector setPlayerSide={this.changeIsPlayerSide} />
-                        <button className="play-game-btn" onClick={this.startGameStatus}>{t('PLAY')}</button>
+                                <button className="play-game-btn" onClick={this.startGameStatus}>{t('PLAY')}</button>
                             </div>
                         }
                         {

@@ -11,6 +11,9 @@
     "PLAY_TO": "Play",
     "PROMO_PHRASE_1": "Win with a row...",
     "PROMO_PHRASE_2": "...win with a column",
-    "PROMO_PHRASE_3": "or win with a diagonal..."
+    "PROMO_PHRASE_3": "or win with a diagonal...",
+    "DRAW": "Draw",
+    "X WINNER": "X wins",
+    "O WINNER": "O wins"
   }
 }
