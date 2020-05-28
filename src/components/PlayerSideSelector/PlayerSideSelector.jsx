@@ -18,11 +18,11 @@ const PlayerSideSelector = props => {
             <p>{t('CHOOSE_SIDE')}</p>
             <div className="player-side-selector">
                 <div>
-                    <input type="radio" required name="playerSide" id="X" value="X" onChange={onPlayerSideChange} />
+                    <input type="radio" checked name="playerSide" id="X" value="X" onChange={onPlayerSideChange} />
                     <label htmlFor="X">{t('PLAY_WITH_X')}</label>
                 </div>
                 <div>
-                    <input type="radio" required name="playerSide" id="O" value="O" onChange={onPlayerSideChange} />
+                    <input type="radio" name="playerSide" id="O" value="O" onChange={onPlayerSideChange} />
                     <label htmlFor="O">{t('PLAY_WITH_O')}</label>
                 </div>
             </div>
