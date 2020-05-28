@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Square from '../Square';
-import GameContext from '../../contexts/gameContext';
 import './Board.css';
 
 const Board = props => {
 
     const BOARD_SIZE = 3;
-    const { board, updateBoard, updateNextTurnValue, isPlayerTurn } = useContext(GameContext);
+    const { board, isPlayerX, isXTurn, isPlayerTurn, updateBoard, updateNextTurnValue, getTurnValue, requestAPIPlay, isGameFinished } = props;
 
     const renderBoard = () => {
         return <div className="board">{renderRows()}</div>;
@@ -42,15 +41,20 @@ const Board = props => {
         return <React.Fragment>{rowSquares}</React.Fragment>;
     };
 
+    const clickInBoard = squareId => {
+        const newBoard = [...board];
+        newBoard[squareId] = getTurnValue();
+        return newBoard;
+    }
+
     const onSquareClick = async squareId => {
-        if (!isPlayerTurn() || isClickedSquare(squareId) /* || isGameFinished() */) return;
+        if (!isPlayerTurn() || isClickedSquare(squareId) || isGameFinished()) return;
     
-        updateBoard(squareId);
-        updateNextTurnValue();
+        const newBoard = clickInBoard(squareId);
+        updateBoard(newBoard);
+        updateNextTurnValue(!isXTurn);
 
-
-        // Llamar al API para que juegue el bot
-    
+        await requestAPIPlay(newBoard, isPlayerX, isXTurn);
       };
 
       const isClickedSquare = squareId => board[squareId];
