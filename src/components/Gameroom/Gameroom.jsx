@@ -39,24 +39,13 @@ export default class Gameroom extends React.Component {
 
     isBoardEmpty = () => this.state.board.filter(square => square === '').length === 9;
 
-    createNewBoard = () => {
-        const emptyBoard = ["", "", "", "", "", "", "", "", ""];
-        return emptyBoard;
-    };
+    createNewBoard = () => ["", "", "", "", "", "", "", "", ""];
 
-    changeBoard = newBoard => {
-        this.setState({ board: newBoard });
-    }
+    changeBoard = newBoard => this.setState({ board: newBoard });
 
-    changeTurn = turnX => {
-        this.setState({ isXTurn: turnX });
-    }
+    changeTurn = turnX => this.setState({ isXTurn: turnX });
 
-    changeGameStatus = gameStatus => {
-        console.log(gameStatus);
-        
-        this.setState({ gameStatus });
-    }
+    changeGameStatus = gameStatus => this.setState({ gameStatus });
 
     isPlayerTurn = () => {
         const { isPlayerX, isXTurn } = this.state;
@@ -94,37 +83,43 @@ export default class Gameroom extends React.Component {
 
                 <h1>Sala de juego</h1>
 
-                <div className="gamezone-container">
-                    {
-                        gameStatus === gameStatusCode.GAME_NOT_STARTED
-                        &&
-                        <div className="player-form-container">
-                            <PlayerSideSelector setPlayerSide={this.changeIsPlayerSide} />
-                            <button className="play-game-btn" onClick={this.startGameStatus}>JUGAR</button>
-                        </div>
-                    }
-                    {
-                        gameStatus !== gameStatusCode.GAME_NOT_STARTED
-                        &&
-                        <div>
-                            <p>Juegas con {this.getPlayerSideValue()}</p>
-                            <p>ESTADO DE LA PARTIDA: {gameStatus}</p>
-                            <p>TURNO DE : {this.getTurnValue()}</p>
-                            <Board
-                                board={board}
-                                isPlayerX={isPlayerX}
-                                isXTurn={isXTurn}
-                                isPlayerTurn={this.isPlayerTurn}
-                                updateBoard={this.changeBoard}
-                                updateNextTurnValue={this.changeTurn}
-                                getTurnValue={this.getTurnValue}
-                                requestAPIPlay={this.requestAPIPlay}
-                                isGameFinished={this.isGameFinished}
-                            />
-                            <button disabled={!this.isGameFinished()} onClick={this.resetGame}>RESET GAME</button>
-                            <button disabled={!this.isGameFinished()} onClick={this.finishGame}>Volver al lobby</button>
-                        </div>
-                    }
+                <div className="gameroom-wrapper">
+                    <div className="gamezone-container">
+                        {
+                            gameStatus === gameStatusCode.GAME_NOT_STARTED
+                            &&
+                            <div className="player-form-container">
+                                <PlayerSideSelector setPlayerSide={this.changeIsPlayerSide} />
+                                <button className="play-game-btn" onClick={this.startGameStatus}>JUGAR</button>
+                            </div>
+                        }
+                        {
+                            gameStatus !== gameStatusCode.GAME_NOT_STARTED
+                            &&
+                            <div className="main-gamezone-board">
+                                <h3 className="gamestatus">{gameStatus}</h3>
+                                <div className="player-turn">
+                                    <span className={this.getTurnValue() === 'X' ? 'current-turn' : ''}>X</span>
+                                    <span className={this.getTurnValue() === 'O' ? 'current-turn' : ''}>O</span>
+                                </div>
+                                <Board
+                                    board={board}
+                                    isPlayerX={isPlayerX}
+                                    isXTurn={isXTurn}
+                                    isPlayerTurn={this.isPlayerTurn}
+                                    updateBoard={this.changeBoard}
+                                    updateNextTurnValue={this.changeTurn}
+                                    getTurnValue={this.getTurnValue}
+                                    requestAPIPlay={this.requestAPIPlay}
+                                    isGameFinished={this.isGameFinished}
+                                />
+                                <div className="game-button-row">
+                                    <button disabled={!this.isGameFinished()} onClick={this.resetGame}>RESET GAME</button>
+                                    <button disabled={!this.isGameFinished()} onClick={this.finishGame}>Volver al lobby</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
         );

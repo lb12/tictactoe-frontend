@@ -7,8 +7,8 @@ const Home = props => {
     return (
         <div className="home-wrapper">
             <div className="promo-phrases-container">
-                <p className="promo-phrase phrase-1">Hazlo con una fila...</p>
-                <p className="promo-phrase phrase-2">...hazlo con una columna</p>
+                <p className="promo-phrase phrase-1">Gana con una fila...</p>
+                <p className="promo-phrase phrase-2">...gana con una columna</p>
                 <p className="promo-phrase phrase-3">o con una diagonal...</p>
             </div>
             

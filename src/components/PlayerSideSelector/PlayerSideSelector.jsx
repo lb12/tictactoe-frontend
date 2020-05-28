@@ -16,11 +16,11 @@ const PlayerSideSelector = props => {
             <p>Elige con qué quieres jugar</p>
             <div className="player-side-selector">
                 <div>
-                    <input type="radio" name="playerSide" id="X" value="X" onChange={onPlayerSideChange} />
+                    <input type="radio" required name="playerSide" id="X" value="X" onChange={onPlayerSideChange} />
                     <label htmlFor="X">Jugar con X</label>
                 </div>
                 <div>
-                    <input type="radio" name="playerSide" id="O" value="O" onChange={onPlayerSideChange} />
+                    <input type="radio" required name="playerSide" id="O" value="O" onChange={onPlayerSideChange} />
                     <label htmlFor="O">Jugar con O</label>
                 </div>
             </div>

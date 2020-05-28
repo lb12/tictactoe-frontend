@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem;    
 }
 
 .gameroom-container h1 {
@@ -10,9 +10,17 @@
     margin-bottom: 4rem;
 }
 
+.gameroom-wrapper {
+    width: 100%;
+}
+
 .gamezone-container {
-    border: 1px solid black;
+    margin: 0 auto;
+    padding: 1.5rem;
     border-radius: .2rem;
+    -webkit-box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.75);
 }
 
 .player-form-container {
@@ -21,7 +29,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 1.5rem;
 }
 
 .player-form-container button.play-game-btn {
@@ -38,4 +45,69 @@
 
 .player-form-container button.play-game-btn:hover {
     background-color: #0A60FF;
+}
+
+.main-gamezone-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dark);
+    color: white;
+}
+
+.player-turn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-turn span {
+    font-size: 2rem;
+}
+
+.current-turn {
+    font-weight: bold;
+    color: var(--yellow);
+}
+
+.game-button-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+}
+
+.game-button-row button {
+    padding: .7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0;
+    border-radius: .1rem;
+    color: white;
+    background-color: #5c95ff;
+    cursor: pointer;
+}
+
+.game-button-row button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.game-button-row button:hover {
+    background-color: #0A60FF;
+}
+
+
+@media (min-width: 576px) {
+    .gamezone-container {
+        max-width: 576px;
+    }
+}
+
+@media (min-width: 768px) {
+    .gamezone-container {
+        max-width: 768px;
+    }
 }
