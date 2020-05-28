@@ -4,8 +4,9 @@ import Board from '../Board';
 import { getPlay } from '../../services/api';
 import { gameStatusCode } from '../../utils/dictionary';
 import './Gameroom.css';
+import { withTranslation } from 'react-i18next';
 
-export default class Gameroom extends React.Component {
+class Gameroom extends React.Component {
 
     constructor(props) {
         super(props);
@@ -77,11 +78,11 @@ export default class Gameroom extends React.Component {
 
     render() {
         const { board, isPlayerX, gameStatus, isXTurn } = this.state;
-
+        const { t } = this.props;
         return (
             <div className="gameroom-container">
 
-                <h1>Sala de juego</h1>
+                <h1>{t('GAMEROOM')}</h1>
 
                 <div className="gameroom-wrapper">
                     <div className="gamezone-container">
@@ -90,14 +91,14 @@ export default class Gameroom extends React.Component {
                             &&
                             <div className="player-form-container">
                                 <PlayerSideSelector setPlayerSide={this.changeIsPlayerSide} />
-                                <button className="play-game-btn" onClick={this.startGameStatus}>JUGAR</button>
+                        <button className="play-game-btn" onClick={this.startGameStatus}>{t('PLAY')}</button>
                             </div>
                         }
                         {
                             gameStatus !== gameStatusCode.GAME_NOT_STARTED
                             &&
                             <div className="main-gamezone-board">
-                                <h3 className="gamestatus">{gameStatus}</h3>
+                                <h3 className="gamestatus">{t(gameStatus)}</h3>
                                 <div className="player-turn">
                                     <span className={this.getTurnValue() === 'X' ? 'current-turn' : ''}>X</span>
                                     <span className={this.getTurnValue() === 'O' ? 'current-turn' : ''}>O</span>
@@ -114,8 +115,8 @@ export default class Gameroom extends React.Component {
                                     isGameFinished={this.isGameFinished}
                                 />
                                 <div className="game-button-row">
-                                    <button disabled={!this.isGameFinished()} onClick={this.resetGame}>RESET GAME</button>
-                                    <button disabled={!this.isGameFinished()} onClick={this.finishGame}>Volver al lobby</button>
+                                    <button disabled={!this.isGameFinished()} onClick={this.resetGame}>{t('RESET_GAME')}</button>
+                                    <button disabled={!this.isGameFinished()} onClick={this.finishGame}>{t('GO_LOBBY_ROOM')}</button>
                                 </div>
                             </div>
                         }
@@ -124,5 +125,5 @@ export default class Gameroom extends React.Component {
             </div>
         );
     }
-
 }
+export default withTranslation()(Gameroom);

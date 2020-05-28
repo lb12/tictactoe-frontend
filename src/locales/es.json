@@ -1,0 +1,16 @@
+{
+  "translations": {
+    "GAME_IN_PROGRESS": "Partida en curso",
+    "RESET_GAME": "Reiniciar juego",
+    "GO_LOBBY_ROOM": "Volver al Lobby",
+    "GAMEROOM": "Sala de juego",
+    "PLAY": "Jugar",
+    "CHOOSE_SIDE": "Elige con qué letra quieres jugar",
+    "PLAY_WITH_X": "Jugar con X",
+    "PLAY_WITH_O": "Jugar con O",
+    "PLAY_TO": "Juega al",
+    "PROMO_PHRASE_1": "Gana con una fila...",
+    "PROMO_PHRASE_2": "...gana con una columna",
+    "PROMO_PHRASE_3": "o con una diagonal..."
+  }
+}
