@@ -22,6 +22,13 @@ Antes de ejecutar la SPA, deberías de comprobar que tienes el API levantado (pu
 
 Aún así puedes ejecutar la SPA si no tienes el API en caso de que quisieras echarle un ojo, arráncalo mediante el comando `npm start`.
 
+## Acciones futuras
+Planteamiento de añadir funcionalidades como:
+
+* Refactorizar el código para usar hooks al 100% y no utilizar clases.
+* Añadir un menú para seleccionar 3 modos de juego (coop, online 1v1, contra la máquina)
+* Utilizar `cypress` para testear la aplicación.
+
 ## Dudas o preguntas
 Si tienes alguna duda o pregunta sobre la SPA puedes contactar conmigo a través de mis redes sociales:
 ```
