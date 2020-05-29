@@ -21,7 +21,7 @@
     margin-right: .8rem;
 }
 
-.player-side-selector input.play-game-btn {
+.player-side-selector button.play-game-btn {
     border: 0;
     border-radius: .3rem;
     padding: .8rem;
@@ -34,6 +34,6 @@
     cursor: pointer;
 }
 
-.player-side-selector input.play-game-btn:hover {
+.player-side-selector button.play-game-btn:hover {
     background-color: #0A60FF;
 }

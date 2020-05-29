@@ -15,6 +15,7 @@ const PlayerSideSelector = ({ startGame, t }) => {
     }
 
     const submitForm = evt => {
+        evt && evt.preventDefault();
         startGame(playerSide);
     }
     
@@ -30,7 +31,7 @@ const PlayerSideSelector = ({ startGame, t }) => {
                     <input type="radio" required name="playerSide" id="O" value="O" onChange={onPlayerSideChange} />
                     <label htmlFor="O">{t('PLAY_WITH_O')}</label>
                 </div>
-                <input type="submit" className="play-game-btn" value={t('PLAY')} />
+                <button type="submit" className="play-game-btn">{t('PLAY')}</button>
             </form>
         </div>
     );
