@@ -89,6 +89,11 @@ class Gameroom extends React.Component {
         return gameStatus !== gameStatusCode.GAME_IN_PROGRESS && gameStatus !== gameStatusCode.GAME_NOT_STARTED;
     }
 
+    selectPlayerSideAndStartGame = playerSide => {
+        this.changeIsPlayerSide(playerSide);
+        this.startGameStatus();
+    }
+
     finishGame = () => this.resetGame(null, gameStatusCode.GAME_NOT_STARTED);
 
     render() {
@@ -105,8 +110,7 @@ class Gameroom extends React.Component {
                             gameStatus === gameStatusCode.GAME_NOT_STARTED
                             &&
                             <div className="player-form-container">
-                                <PlayerSideSelector setPlayerSide={this.changeIsPlayerSide} />
-                                <button className="play-game-btn" onClick={this.startGameStatus}>{t('PLAY')}</button>
+                                <PlayerSideSelector startGame={this.selectPlayerSideAndStartGame} />
                             </div>
                         }
                         {

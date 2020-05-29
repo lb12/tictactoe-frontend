@@ -3,7 +3,7 @@
 }
 
 .player-side-selector {
-    height: 4rem;
+    height: 9rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,4 +19,21 @@
 .player-side-selector input[type='radio'] {
     margin: 0;
     margin-right: .8rem;
+}
+
+.player-side-selector input.play-game-btn {
+    border: 0;
+    border-radius: .3rem;
+    padding: .8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #5c95ff;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.player-side-selector input.play-game-btn:hover {
+    background-color: #0A60FF;
 }
