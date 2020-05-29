@@ -14,6 +14,10 @@
     "PROMO_PHRASE_3": "o con una diagonal...",
     "DRAW": "Empate",
     "X WINNER": "Gana X",
-    "O WINNER": "Gana O"
+    "O WINNER": "Gana O",
+    "Validation failed - board MUST_BE_ARRAY_9_ELEMENTS": "Tamaño del tablero incorrecto",
+    "Validation failed - board MUST_NOT_BE_EMPTY": "El tablero no contiene información",
+    "Validation failed - isBotX MUST_NOT_BE_EMPTY": "El bot no puede saber su lado",
+    "Validation failed - isBotX MUST_BE_BOOLEAN": "El bot no puede saber su lado"
   }
 }

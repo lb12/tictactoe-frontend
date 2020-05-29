@@ -7,9 +7,7 @@ const Board = props => {
     const BOARD_SIZE = 3;
     const { board, isPlayerX, isXTurn, isPlayerTurn, updateBoard, updateNextTurnValue, getTurnValue, requestAPIPlay, isGameFinished } = props;
 
-    const renderBoard = () => {
-        return <div className="board">{renderRows()}</div>;
-    };
+    const renderBoard = () => <div className="board">{renderRows()}</div>;
 
     const renderRows = () => {
         const rows = [];

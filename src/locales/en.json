@@ -14,6 +14,10 @@
     "PROMO_PHRASE_3": "or win with a diagonal...",
     "DRAW": "Draw",
     "X WINNER": "X wins",
-    "O WINNER": "O wins"
+    "O WINNER": "O wins",
+    "Validation failed - board MUST_BE_ARRAY_9_ELEMENTS": "Board size not correct",
+    "Validation failed - board MUST_NOT_BE_EMPTY": "Board has not enough info",
+    "Validation failed - isBotX MUST_NOT_BE_EMPTY": "Bot can not know his side",
+    "Validation failed - isBotX MUST_BE_BOOLEAN": "Bot can not know his side"
   }
 }

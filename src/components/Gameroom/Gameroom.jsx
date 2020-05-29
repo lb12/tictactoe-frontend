@@ -1,10 +1,16 @@
+// React imports
 import React from 'react';
+import { withTranslation } from 'react-i18next';
+
+// Own imports
 import PlayerSideSelector from '../PlayerSideSelector';
 import Board from '../Board';
 import { getPlay } from '../../services/api';
 import { gameStatusCode } from '../../utils/dictionary';
 import './Gameroom.css';
-import { withTranslation } from 'react-i18next';
+
+
+import {ToastsStore} from 'react-toasts';
 
 class Gameroom extends React.Component {
 
@@ -29,11 +35,22 @@ class Gameroom extends React.Component {
 
     requestAPIPlay = async (board, isPlayerX, nextXTurn) => {
         const response = await getPlay(board, isPlayerX);
+
+        if (response.error) {
+            const { t } = this.props;
+            ToastsStore.error(t(response.message), 10000);
+            return;
+        }
+
+        this.renderBotAnswer(response, nextXTurn);
+    }
+    
+    renderBotAnswer = ({ gameStatus, board }, nextXTurn) => {
         // Simulo un tiempo de respuesta de 1 seg como si estuviera pensando...
         setTimeout(() => {
-            this.changeGameStatus(response.gameStatus);
-            this.changeBoard(response.board);
-            if (response.gameStatus === gameStatusCode.GAME_IN_PROGRESS)
+            this.changeGameStatus(gameStatus);
+            this.changeBoard(board);
+            if (gameStatus === gameStatusCode.GAME_IN_PROGRESS)
                 this.changeTurn(nextXTurn);
         }, 1000);
     }
@@ -72,9 +89,7 @@ class Gameroom extends React.Component {
         return gameStatus !== gameStatusCode.GAME_IN_PROGRESS && gameStatus !== gameStatusCode.GAME_NOT_STARTED;
     }
 
-    finishGame = () => {
-        this.resetGame(null, gameStatusCode.GAME_NOT_STARTED);
-    }
+    finishGame = () => this.resetGame(null, gameStatusCode.GAME_NOT_STARTED);
 
     render() {
         const { board, isPlayerX, gameStatus, isXTurn } = this.state;

@@ -1,6 +1,7 @@
 // React imports
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {ToastsContainer, ToastsStore } from 'react-toasts';
 
 // Own imports
 import './App.css';
@@ -19,6 +20,7 @@ const App = () => {
           <Router>
             <Navbar />
             <main>
+              <ToastsContainer store={ToastsStore} />
               <Switch>
                 <Route path="/game" component={Gameroom} />
                 <Route exact path="/" component={Home} />

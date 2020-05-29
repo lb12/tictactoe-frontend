@@ -5,17 +5,20 @@ const apiURl = 'https://localhost:3001/api';
 export const getPlay = async (board, isPlayerX) => {
     const data = { board, isBotX: !isPlayerX };
 
-    let res;
+    let res = { error: false };
     try {
-        res = await Axios.post(`${apiURl}/plays`, data);
+        const response = await Axios.post(`${apiURl}/plays`, data);
 
-        if (res.status === 200)
-            res  = res.data;
+        if (response.status === 200)
+            res = { ...res, ...response.data };
 
     } catch (error) {
-        res = { message: error };
+        const isApiOffline = error.response === undefined;
+        if (isApiOffline) {
+            return { error: true, message: error.message };
+        }
+        const errorMessage = error.response.data.data;        
+        res = { error: true, message: errorMessage };
     }
-
-    console.log(res);
     return res;
 };
