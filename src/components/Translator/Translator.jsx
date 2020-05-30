@@ -2,8 +2,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-// Component imports
+// Own imports
 import "./Translator.css";
+
 
 export const Translator = props => {
   const { i18n } = useTranslation();

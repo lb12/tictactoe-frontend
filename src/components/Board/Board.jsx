@@ -1,11 +1,13 @@
+// React imports
 import React from 'react';
+
+// Own imports
 import Square from '../Square';
 import './Board.css';
 
-const Board = props => {
+const Board = ({ board, isPlayerX, isXTurn, isPlayerTurn, updateBoard, updateNextTurnValue, getTurnValue, requestAPIPlay, isGameFinished }) => {
 
     const BOARD_SIZE = 3;
-    const { board, isPlayerX, isXTurn, isPlayerTurn, updateBoard, updateNextTurnValue, getTurnValue, requestAPIPlay, isGameFinished } = props;
 
     const renderBoard = () => <div className="board">{renderRows()}</div>;
 
@@ -53,9 +55,9 @@ const Board = props => {
         updateNextTurnValue(!isXTurn);
 
         await requestAPIPlay(newBoard, isPlayerX, isXTurn);
-      };
+    };
 
-      const isClickedSquare = squareId => board[squareId];
+    const isClickedSquare = squareId => board[squareId];
 
     return (
         <div>{renderBoard()}</div>

@@ -1,8 +1,11 @@
+// React imports
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import './Home.css';
 import { withTranslation } from 'react-i18next';
+
+// Own imports
+import './Home.css';
+
 
 const Home = props => {
     const { t } = props;

@@ -1,7 +1,9 @@
+// React imports
 import React, { useState } from 'react'; 
-
-import './PlayerSideSelector.css';
 import { withTranslation } from 'react-i18next';
+
+// Own imports
+import './PlayerSideSelector.css';
 
 const PlayerSideSelector = ({ startGame, t }) => {
 

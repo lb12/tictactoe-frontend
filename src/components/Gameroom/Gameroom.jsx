@@ -1,6 +1,7 @@
 // React imports
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import {ToastsStore} from 'react-toasts';
 
 // Own imports
 import PlayerSideSelector from '../PlayerSideSelector';
@@ -9,8 +10,6 @@ import { getPlay } from '../../services/api';
 import { gameStatusCode } from '../../utils/dictionary';
 import './Gameroom.css';
 
-
-import {ToastsStore} from 'react-toasts';
 
 class Gameroom extends React.Component {
 

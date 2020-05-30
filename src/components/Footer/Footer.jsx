@@ -1,6 +1,9 @@
+// React imports
 import React from 'react';
+
+// Own imports
 import './Footer.css';
-import { Translator } from '../Translator/Translator';
+import { Translator } from '../Translator';
 
 const Footer = props => {
     return (
