@@ -3,7 +3,7 @@ import React from 'react';
 
 // Own imports
 import './Footer.css';
-import { Translator } from '../Translator';
+import Translator from '../Translator';
 
 const Footer = props => {
     return (

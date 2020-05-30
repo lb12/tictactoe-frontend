@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import "./Translator.css";
 
 
-export const Translator = props => {
+const Translator = props => {
   const { i18n } = useTranslation();
 
   const changeLanguage = lng => {
@@ -30,3 +30,5 @@ export const Translator = props => {
     </aside>
   );
 }
+
+export default Translator;
